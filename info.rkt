@@ -1,6 +1,8 @@
 #lang info
 (define collection "kata-installer")
-(define deps '("base" "pkg-watcher" "game-engine"))
+(define deps '("base" 
+               "https://github.com/thoughtstem/pkg-watcher.git" 
+               "https://github.com/thoughtstem/game-engine.git"))
 (define build-deps '("scribble-lib" "racket-doc" "rackunit-lib"))
 (define scribblings '(("scribblings/kata-installer.scrbl" ())))
 (define pkg-desc "Description Here")
