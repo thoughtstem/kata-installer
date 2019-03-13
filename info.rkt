@@ -1,6 +1,7 @@
 #lang info
 (define collection "kata-installer")
 (define deps '("base" 
+               "simple-http"
                "https://github.com/thoughtstem/pkg-watcher.git" 
                "https://github.com/thoughtstem/game-engine.git"
                "https://github.com/thoughtstem/game-engine-rpg.git"
