@@ -42,17 +42,17 @@
                                      "config.json")))
   (define config-json (string->jsexpr local-config))
 
-  (define api-key (hash-ref config-json "api_key"))
+  (define api-key (hash-ref config-json 'api_key))
 
   (define secure-thoughtstem-com
     (update-ssl
       (update-host json-requester "secure.thoughtstem.com") #t))
 
   ; Query params for the request
-  (define params (list (cons "api_key" api-key)))
+  (define params (list (cons 'api_key api-key)))
 
   ; Make a GET to https://httpbin.org/get?foo=12&bar=hello
-  (define response (put secure-thoughtstem-com (~a "/computers/" cb-id ".json") #:params params #:data (make-hash "software_version" (current-milliseconds))))
+  (define response (put secure-thoughtstem-com (~a "/computers/" cb-id ".json") #:params params #:data (hash 'software_version (current-milliseconds))))
 
   (void))
 
