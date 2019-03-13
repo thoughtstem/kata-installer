@@ -11,7 +11,7 @@
 ;  (watch! 'ratchet)
 ;  (watch! 'racket-chipmunk)
   (watch! 'game-engine)
-;  (watch! 'game-engine-rpg)
+  (watch! 'game-engine-rpg)
 ;  (watch! 'game-engine-demos-common)
 ;  (watch! 'battlearena)
 ;  (watch! 'survival)
