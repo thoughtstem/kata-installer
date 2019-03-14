@@ -6,7 +6,7 @@
 
 (define (post-installer path)
   (watch! 'pkg-watcher)    ;Meta, watch pkg-watcher itself
-  (watch! 'kata-installer) ;Meta, watch this very package
+  (watch! 'kata-installer) ;Meta, watch this very package too.
 
   (watch! 'ratchet)
   (watch! 'racket-chipmunk)
@@ -24,23 +24,22 @@
   (watch! 'survival-pokemon)
   (watch! 'survival)
  
+  ;If we put this here, we'll get false positives...
+  ;  But the other option is that pkg-watcher needs to be expanded to
+  ;  do some kind of callback when the update succeeds.
+  ;Might be okay for now.
+  (maybe-log-update))
 
-  ;TODO: Contacting our backend...
-    ;Done, but not quite the right place...
-    ; Should trigger when pkg-watcher does its thing...
-    ; dynamic-require some path stored in pkg-watcher's dot file?
-
-
+(define (maybe-log-update)
   (define cb-file
     (build-path (find-system-path 'home-dir)
-                              "remote"
-                              "cb_id"))
-  
-  (if (file-exists? cb-file)
+                "remote"
+                "cb_id"))
+
+  (if (file-exists? cb-file) 
       (log-update)
       (void)))
-
-;TODO: Protect this, only run on our CBs.  Keep kata-installer relatively general.
+  
 
 (define (log-update)
   (define time (~t (now/moment/utc) "y-m-d hh:mm:ss 'UTC'"))
