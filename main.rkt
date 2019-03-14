@@ -8,20 +8,27 @@
   (watch! 'pkg-watcher)    ;Meta, watch pkg-watcher itself
   (watch! 'kata-installer) ;Meta, watch this very package
 
-;  (watch! 'ratchet)
-;  (watch! 'racket-chipmunk)
+  (watch! 'ratchet)
+  (watch! 'racket-chipmunk)
   (watch! 'game-engine)
   (watch! 'game-engine-rpg)
-;  (watch! 'game-engine-demos-common)
-;  (watch! 'battlearena)
-;  (watch! 'survival)
- 
-  ;TODO: More here
-  ;
-  ;TODO: Consider whether we need to topologically sort anything.  If so, add that to pkg-watcher
+  (watch! 'game-engine-demos-common)
 
+  (watch! 'battlearena-avengers)
+  (watch! 'battlearena-fortnite)
+  (watch! 'battlearena-starwars)
+  (watch! 'battlearena)
+  (watch! 'fundamentals)
+  (watch! 'k2)
+  (watch! 'survival-minecraft)
+  (watch! 'survival-pokemon)
+  (watch! 'survival)
+ 
 
   ;TODO: Contacting our backend...
+    ;Done, but not quite the right place...
+    ; Should trigger when pkg-watcher does its thing...
+    ; dynamic-require some path stored in pkg-watcher's dot file?
 
 
   (define cb-file
