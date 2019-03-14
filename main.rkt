@@ -42,7 +42,8 @@
   
 
 (define (log-update)
-  (define time (~t (now/moment/utc) "y-m-d hh:mm:ss 'UTC'"))
+  (define time (~t (now/moment/utc) 
+                   "y-m-d hh:mm:ss 'UTC'"))
 
   (define cb-id (string-trim
                  (file->string
