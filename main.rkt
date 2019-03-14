@@ -2,7 +2,7 @@
 
 (provide post-installer)
 
-(require pkg-watcher json simple-http racket/date)
+(require pkg-watcher json simple-http gregor)
 
 (define (post-installer path)
   (watch! 'pkg-watcher)    ;Meta, watch pkg-watcher itself
@@ -24,35 +24,46 @@
   ;TODO: Contacting our backend...
 
 
-  (log-update)
-  )
+  (define cb-file
+    (build-path (find-system-path 'home-dir)
+                              "remote"
+                              "cb_id"))
+  
+  (if (file-exists? cb-file)
+      (log-update)
+      (void)))
 
 ;TODO: Protect this, only run on our CBs.  Keep kata-installer relatively general.
 
 (define (log-update)
-  (define cb-id (file->string
-		  (build-path (find-system-path 'home-dir)
-			      "remote"
-			      "cb_id")))
+  (define time (~t (now/moment/utc) "y-m-d hh:mm:ss 'UTC'"))
 
+  (define cb-id (string-trim
+                 (file->string
+                  build-path (find-system-path 'home-dir)
+                              "remote"
+                              "cb_id")))
+  
   (define local-config (file->string 
                          (build-path (find-system-path 'home-dir)
                                      "remote"
                                      "sessions"
                                      "config.json")))
+
   (define config-json (string->jsexpr local-config))
-
+  
   (define api-key (hash-ref config-json 'api_key))
-
+  
   (define secure-thoughtstem-com
     (update-ssl
       (update-host json-requester "secure.thoughtstem.com") #t))
-
-  ; Query params for the request
-  (define params (list (cons 'api_key api-key)))
-
-  ; Make a GET to https://httpbin.org/get?foo=12&bar=hello
-  (define response (put secure-thoughtstem-com (~a "/computers/" cb-id ".json") #:params params #:data (hash 'software_version (current-milliseconds))))
+  
+  (define response (put secure-thoughtstem-com
+                        (~a "/computers/" cb-id ".json?api_key=" api-key)
+                        #:data
+                        (jsexpr->string
+                         (hash 'computer
+                               (hash 'software_version time)))))
 
   (void))
 
