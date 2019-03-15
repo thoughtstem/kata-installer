@@ -47,9 +47,9 @@
 
   (define cb-id (string-trim
                  (file->string
-                  build-path (find-system-path 'home-dir)
-                              "remote"
-                              "cb_id")))
+                   (build-path (find-system-path 'home-dir)
+                                "remote"
+                                "cb_id"))))
   
   (define local-config (file->string 
                          (build-path (find-system-path 'home-dir)
