@@ -27,6 +27,7 @@
   (watch! 'survival-pokemon)
   (watch! 'survival))
 
+
 ;Gets called by pkg-watcher automatically after updates complete
 (define (callback)
   (define chromebook-file
@@ -41,7 +42,7 @@
 
 (define (log-update)
   (define time (~t (now/moment/utc) 
-                   "y-m-d hh:mm:ss"))
+                   "y-MM-dd hh:mm:ss"))
 
   (define cb-id (string-trim
                  (file->string
