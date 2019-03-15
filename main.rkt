@@ -1,10 +1,13 @@
 #lang racket
 
-(provide post-installer)
+(provide post-installer callback)
 
 (require pkg-watcher json simple-http gregor)
 
+;Gets called by raco automatically after setup
 (define (post-installer path)
+  (add-callback! 'kata-installer/main)
+
   (watch! 'pkg-watcher)    ;Meta, watch pkg-watcher itself
   (watch! 'kata-installer) ;Meta, watch this very package too.
 
@@ -22,21 +25,16 @@
   (watch! 'k2)
   (watch! 'survival-minecraft)
   (watch! 'survival-pokemon)
-  (watch! 'survival)
- 
-  ;If we put this here, we'll get false positives...
-  ;  But the other option is that pkg-watcher needs to be expanded to
-  ;  do some kind of callback when the update succeeds.
-  ;Might be okay for now.
-  (maybe-log-update))
+  (watch! 'survival))
 
-(define (maybe-log-update)
-  (define cb-file
+;Gets called by pkg-watcher automatically after updates complete
+(define (callback)
+  (define chromebook-file
     (build-path (find-system-path 'home-dir)
                 "remote"
                 "cb_id"))
 
-  (if (file-exists? cb-file) 
+  (if (file-exists? chromebook-file) 
       (log-update)
       (void)))
   
