@@ -1,6 +1,6 @@
 #lang racket
 
-(require pkg/name pkg/lib)
+(require pkg/name pkg/lib pkg)
 
 (provide ensure-all-installed-from-git!)
 
