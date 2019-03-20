@@ -9,11 +9,10 @@
   (pkg-directory name))
 
 (define (ensure-all-installed-from-git! . sources)
-
   (define to-update
     (filter installed? sources))
 
-  (with-pkg-lock 
-    (pkg-update to-update #:dep-behavior 'search-auto)))
+  (for ([u to-update])
+    (pkg-update-command u #:deps 'search-auto)))
 
 
