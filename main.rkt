@@ -13,7 +13,7 @@
   ;Otherwise, they won't get updates immediately when we push to git.
 
   (update-if-installed! 
-    "tzinfo" ;For some reason, this causes our install to fail if it isn't up-to-date.  See ticket: https://github.com/97jaz/gregor/issues/29
+;    "tzinfo" ;For some reason, this causes our install to fail if it isn't up-to-date.  See ticket: https://github.com/97jaz/gregor/issues/29
     "https://github.com/thoughtstem/pkg-watcher.git" 
     "https://github.com/thoughtstem/ratchet.git"
     "https://github.com/thoughtstem/racket-chipmunk.git"
