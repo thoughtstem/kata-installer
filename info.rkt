@@ -1,8 +1,7 @@
 #lang info
 (define collection "kata-installer")
 (define deps '("base" 
-               "tzinfo"
-               "gregor"
+               ;"gregor" ;Commenting out, so we can hackily install it ourselves.  See main.rkt.  
                "simple-http"
                "https://github.com/thoughtstem/pkg-watcher.git" 
                "https://github.com/thoughtstem/ratchet.git"

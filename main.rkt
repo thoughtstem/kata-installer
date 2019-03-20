@@ -3,7 +3,7 @@
 (provide pre-installer post-installer callback)
 
 (require pkg-watcher json simple-http gregor 
-         "./ensure-installed-from-git.rkt"
+         "./raco-util.rkt"
          )
 
 
@@ -12,8 +12,17 @@
   ;   Here, we make sure all installations come from git.
   ;Otherwise, they won't get updates immediately when we push to git.
 
+
+  ;For some reason, this causes our install to fail if it isn't up-to-date.  See ticket: https://github.com/97jaz/gregor/issues/29  
+  ;  Specifying these in info.rkt causes the error
+  ;  This is basically a hack where we install these ourselves to avoid the wrong thing that raco seems to be doing. 
+  (install-or-update!
+     "tzinfo" 
+     "gregor") 
+
+
+  ;This is to switch anything from catalog to source.
   (update-if-installed! 
-;    "tzinfo" ;For some reason, this causes our install to fail if it isn't up-to-date.  See ticket: https://github.com/97jaz/gregor/issues/29
     "https://github.com/thoughtstem/pkg-watcher.git" 
     "https://github.com/thoughtstem/ratchet.git"
     "https://github.com/thoughtstem/racket-chipmunk.git"
