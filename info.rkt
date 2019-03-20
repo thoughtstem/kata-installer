@@ -25,8 +25,14 @@
 (define version "0.0")
 (define pkg-authors '(thoughtstem))
 
+(define compile-omit-paths
+  '("./update-backend.rkt") ;Because if it gets compiled, it'll require gregor, which we have to hackily install manually.  Don't want update-backend.rkt to mess up the `raco setup`
+  )
+
 (define pre-install-collection 
   "./main.rkt")
 
 (define post-install-collection 
   "./main.rkt")
+
+
