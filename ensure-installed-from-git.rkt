@@ -2,13 +2,13 @@
 
 (require pkg/name pkg/lib pkg)
 
-(provide ensure-all-installed-from-git!)
+(provide update-if-installed!)
 
 (define (installed? s)
   (define name (package-source->name s)) 
   (pkg-directory name))
 
-(define (ensure-all-installed-from-git! . sources)
+(define (update-if-installed! . sources)
   (define to-update
     (filter installed? sources))
 
