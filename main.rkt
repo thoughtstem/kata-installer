@@ -1,8 +1,33 @@
 #lang racket
 
-(provide post-installer callback)
+(provide pre-installer post-installer callback)
 
-(require pkg-watcher json simple-http gregor)
+(require pkg-watcher json simple-http gregor 
+         "./ensure-installed-from-git.rkt"
+         )
+
+
+(define (pre-installer path)
+  ;Some of our older installations used the racket package server.
+  ;   Here, we make sure all installations come from git.
+  ;Otherwise, they won't get updates immediately when we push to git.
+
+  (ensure-all-installed-from-git! 
+    "https://github.com/thoughtstem/pkg-watcher.git" 
+    "https://github.com/thoughtstem/ratchet.git"
+    "https://github.com/thoughtstem/racket-chipmunk.git"
+    "https://github.com/thoughtstem/game-engine.git"
+    "https://github.com/thoughtstem/game-engine-rpg.git"
+    "https://github.com/thoughtstem/game-engine-demos.git?path=game-engine-demos-common"
+    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers"
+    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite"
+    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars"
+    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena"
+    "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals"
+    "https://github.com/thoughtstem/TS-Languages.git?path=k2"
+    "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft"
+    "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon"
+    "https://github.com/thoughtstem/TS-Languages.git?path=survival"))
 
 ;Gets called by raco automatically after setup
 (define (post-installer path)
@@ -72,5 +97,10 @@
                                (hash 'software_version time)))))
 
   (void))
+
+
+
+
+
 
 

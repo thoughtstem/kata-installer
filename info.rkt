@@ -25,5 +25,8 @@
 (define version "0.0")
 (define pkg-authors '(thoughtstem))
 
+(define pre-install-collection 
+  "./main.rkt")
+
 (define post-install-collection 
   "./main.rkt")
