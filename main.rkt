@@ -7,36 +7,33 @@
 
 
 (define (pre-installer path)
-  ;Some of our older installations used the racket package server.
-  ;   Here, we make sure all installations come from git.
-  ;Otherwise, they won't get updates immediately when we push to git.
+  ;For some reason, we're running into issues with raco failing on some of our chromebooks.  I posted about it on the Racket mailing list.  When that happens, the pre-installer never runs. 
 
+  ;Hack for now, remove all deps from kata-installer's info.rkt
+  ;  Hopefully, that makes sure that we get here.
 
-  ;For some reason, this causes our install to fail if it isn't up-to-date.  See ticket: https://github.com/97jaz/gregor/issues/29  
-  ;  Specifying these in info.rkt causes the error
-  ;  This is basically a hack where we install these ourselves to avoid the wrong thing that raco seems to be doing. 
+  ;Now, maybe we can do more fine-grained cleanup of packages that
+  ;  may be in the wrong state...
+
   (install-or-update!
      "tzinfo" 
-     "gregor") 
+     "gregor" 
 
-
-  ;This is to switch anything from catalog to source.
-  (update-if-installed! 
-    "https://github.com/thoughtstem/pkg-watcher.git" 
-    "https://github.com/thoughtstem/ratchet.git"
-    "https://github.com/thoughtstem/racket-chipmunk.git"
-    "https://github.com/thoughtstem/game-engine.git"
-    "https://github.com/thoughtstem/game-engine-rpg.git"
-    "https://github.com/thoughtstem/game-engine-demos.git?path=game-engine-demos-common"
-    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers"
-    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite"
-    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars"
-    "https://github.com/thoughtstem/TS-Languages.git?path=battlearena"
-    "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals"
-    "https://github.com/thoughtstem/TS-Languages.git?path=k2"
-    "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft"
-    "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon"
-    "https://github.com/thoughtstem/TS-Languages.git?path=survival"))
+     "https://github.com/thoughtstem/pkg-watcher.git" 
+     "https://github.com/thoughtstem/ratchet.git"
+     "https://github.com/thoughtstem/racket-chipmunk.git"
+     "https://github.com/thoughtstem/game-engine.git"
+     "https://github.com/thoughtstem/game-engine-rpg.git"
+     "https://github.com/thoughtstem/game-engine-demos.git?path=game-engine-demos-common"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena"
+     "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals"
+     "https://github.com/thoughtstem/TS-Languages.git?path=k2"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival"))
 
 ;Gets called by raco automatically after setup
 (define (post-installer path)

@@ -1,23 +1,23 @@
 #lang info
 (define collection "kata-installer")
 (define deps '("base" 
-               ;"gregor" ;Commenting out, so we can hackily install it ourselves.  See main.rkt.  
                "simple-http"
                "https://github.com/thoughtstem/pkg-watcher.git" 
-               "https://github.com/thoughtstem/ratchet.git"
-               "https://github.com/thoughtstem/racket-chipmunk.git"
-               "https://github.com/thoughtstem/game-engine.git"
-               "https://github.com/thoughtstem/game-engine-rpg.git"
-               "https://github.com/thoughtstem/game-engine-demos.git?path=game-engine-demos-common"
-               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers"
-               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite"
-               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars"
-               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena"
-               "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals"
-               "https://github.com/thoughtstem/TS-Languages.git?path=k2"
-               "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft"
-               "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon"
-               "https://github.com/thoughtstem/TS-Languages.git?path=survival"
+               ;"gregor" ;Commenting out, so we can hackily install it ourselves.  See main.rkt.  
+;               "https://github.com/thoughtstem/ratchet.git"
+;               "https://github.com/thoughtstem/racket-chipmunk.git"
+;               "https://github.com/thoughtstem/game-engine.git"
+;               "https://github.com/thoughtstem/game-engine-rpg.git"
+;               "https://github.com/thoughtstem/game-engine-demos.git?path=game-engine-demos-common"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=battlearena"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=k2"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon"
+;               "https://github.com/thoughtstem/TS-Languages.git?path=survival"
                ))
 (define build-deps '("scribble-lib" "racket-doc" "rackunit-lib"))
 (define scribblings '(("scribblings/kata-installer.scrbl" ())))
