@@ -3,7 +3,9 @@
 (define deps '("base" 
                "simple-http"
                "https://github.com/thoughtstem/pkg-watcher.git" 
-               ;"gregor" ;Commenting out, so we can hackily install it ourselves.  See main.rkt.  
+
+;Commenting out, so we can hackily install things ourselves.  See main.rkt.   
+;               "gregor" 
 ;               "https://github.com/thoughtstem/ratchet.git"
 ;               "https://github.com/thoughtstem/racket-chipmunk.git"
 ;               "https://github.com/thoughtstem/game-engine.git"

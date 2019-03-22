@@ -12,9 +12,6 @@
   ;Hack for now, remove all deps from kata-installer's info.rkt
   ;  Hopefully, that makes sure that we get here.
 
-  ;Now, maybe we can do more fine-grained cleanup of packages that
-  ;  may be in the wrong state...
-
   (install-or-update!
      "tzinfo" 
      "gregor" 
@@ -33,15 +30,17 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=k2"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon"
-     "https://github.com/thoughtstem/TS-Languages.git?path=survival"))
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival"
+     
+     ))
 
 ;Gets called by raco automatically after setup
 (define (post-installer path)
   (remove-callback! 'kata-installer/main) ;Old...
   (add-callback! 'kata-installer/update-backend) ;New...
 
-  (watch! 'pkg-watcher)    ;Meta, watch pkg-watcher itself
-  (watch! 'kata-installer) ;Meta, watch this very package too.
+  (priority-watch! 'pkg-watcher)    ;Meta, watch pkg-watcher itself
+  (priority-watch! 'kata-installer) ;Meta, watch this very package too.
 
   (watch! 'ratchet)
   (watch! 'racket-chipmunk)
