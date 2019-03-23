@@ -6,12 +6,13 @@
          "./raco-util.rkt")
 
 
+;Gets called by raco automatically after setup
 (define (pre-installer path)
-  ;For some reason, we're running into issues with raco failing on some of our chromebooks.  I posted about it on the Racket mailing list.  When that happens, the pre-installer never runs. 
+  ;I know it looks like we're managing dependencies here -- which Racket could do for us.
+  
+  ;However, this gives us more fine-grained control over how and when these packages update.
 
-  ;Hack for now, remove all deps from kata-installer's info.rkt
-  ;  Hopefully, that makes sure that we get here.
-
+  ;One annoyance is that you'll need to make sure these dependencies are topologically sorted according to their dependency graph.  That is: If B depends on A, it must come after A in the list.  Other than that constraint, it can be ordered however you want.
   (install-or-change-source-but-not-update!
      "tzinfo" 
      "gregor" 
@@ -36,7 +37,9 @@
 
 ;Gets called by raco automatically after setup
 (define (post-installer path)
-  (remove-callback! 'kata-installer/main) ;Old...
+  ;Here we define our policy for which packages should be updated every time DrRacket opens, and which shall be explicitly updated (with `raco update-watched-packages`).
+
+  ;Also, we set up a callback for watching the updates and reporting to our backend.  But that really ought to be moved to a different package that kata-installer installs (i.e. add it to the package source list above)
   (add-callback! 'kata-installer/update-backend) ;New...
 
   (priority-watch! 'pkg-watcher)    ;Meta, watch pkg-watcher itself
