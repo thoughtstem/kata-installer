@@ -17,21 +17,23 @@
      "tzinfo" 
      "gregor" 
 
-     "https://github.com/thoughtstem/pkg-watcher.git" 
-     "https://github.com/thoughtstem/ratchet.git"
-     "https://github.com/thoughtstem/racket-chipmunk.git"
-     "https://github.com/thoughtstem/game-engine.git"
-     "https://github.com/thoughtstem/game-engine-rpg.git"
-     "https://github.com/thoughtstem/game-engine-demos.git?path=game-engine-demos-common"
-     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena"
-     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers"
-     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite"
-     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars"
-     "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals"
-     "https://github.com/thoughtstem/TS-Languages.git?path=k2"
-     "https://github.com/thoughtstem/TS-Languages.git?path=survival"
-     "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft"
-     "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon"
+
+     ;Specifying #master because I read in the docs that it can speed things up.  https://docs.racket-lang.org/pkg/Package_Concepts.html#%28tech._package._source%29
+     "https://github.com/thoughtstem/pkg-watcher.git#master" 
+     "https://github.com/thoughtstem/ratchet.git#master"
+     "https://github.com/thoughtstem/racket-chipmunk.git#master"
+     "https://github.com/thoughtstem/game-engine.git#master"
+     "https://github.com/thoughtstem/game-engine-rpg.git#master"
+     "https://github.com/thoughtstem/game-engine-demos.git?path=game-engine-demos-common#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=k2#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master"
      
      ))
 
