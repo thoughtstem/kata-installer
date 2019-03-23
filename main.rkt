@@ -12,7 +12,7 @@
   ;Hack for now, remove all deps from kata-installer's info.rkt
   ;  Hopefully, that makes sure that we get here.
 
-  (install-or-update!
+  (install-or-change-source-but-not-update!
      "tzinfo" 
      "gregor" 
 
