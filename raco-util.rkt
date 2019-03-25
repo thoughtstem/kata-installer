@@ -54,6 +54,8 @@
                          [(not (equal? s (source-of s)))
                           (fast-update s)])))
   
+  (displayln (~a "NOW CALLING SETUP ON " sources))
+
   (apply fast-setup sources))
 
 
