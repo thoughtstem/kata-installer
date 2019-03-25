@@ -32,7 +32,7 @@
   (pkg-update-command s #:deps 'search-auto #:no-setup #t))
 
 (define (fast-setup . s)
-  (setup #:collections (map list s) 
+  (setup #:collections (map (compose list package-source->name) s) 
            ;Some things to make it faster...
            #:jobs (processor-count)
            #:make-docs? #f
