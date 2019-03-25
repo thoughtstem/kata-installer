@@ -1,6 +1,6 @@
 #lang racket
 
-(require pkg/name pkg/lib pkg)
+(require pkg/name pkg/lib pkg setup/setup)
 
 (provide update-if-installed!
          install-or-update!
@@ -25,18 +25,35 @@
   (for ([u to-update])
     (pkg-update-command u #:deps 'search-auto)))
 
+(define (fast-install s)
+  (pkg-install-command s #:deps 'search-auto #:no-setup #t)
+  (fast-setup (package-source->name s)))
+
+(define (fast-update s)
+  (pkg-update-command s #:deps 'search-auto #:no-setup #t)
+  (fast-setup (package-source->name s)))
+
+(define (fast-setup s)
+  (setup #:collections (list (list s))
+           ;Some things to make it faster...
+           #:jobs (processor-count)
+           #:make-docs? #f
+           #:make-doc-index? #f))
 
 (define (install-or-update! . sources)
   (for ([s sources])
     (if (installed? s)
-      (pkg-update-command s #:deps 'search-auto)
-      (pkg-install-command s #:deps 'search-auto))))
+      (fast-update s)
+      (fast-install s))))
 
 (define (install-or-change-source-but-not-update! . sources)
   (for ([s sources])
-    (cond [(not (installed? s))
-           (pkg-install-command s #:deps 'search-auto)]
-          [(not (equal? s (source-of s)))
-           (pkg-update-command s #:deps 'search-auto)])))
+    (displayln (~a "INSTALLING OR CHANGING SOURCE " s))
+
+    (with-handlers ([exn:fail? (thunk* (displayln (~a "ERRORS DURING INSTALL OF " s)))])
+                   (cond [(not (installed? s))
+                          (fast-install s)]
+                         [(not (equal? s (source-of s)))
+                          (fast-update s)]))))
 
 
