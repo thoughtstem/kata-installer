@@ -19,6 +19,9 @@
 
 
      ;Specifying #master because I read in the docs that it can speed things up when fetching from github.  https://docs.racket-lang.org/pkg/Package_Concepts.html#%28tech._package._source%29
+
+     "https://github.com/jeapostrophe/lux.git#master" 
+
      "https://github.com/thoughtstem/pkg-watcher.git#master" 
      "https://github.com/thoughtstem/ratchet.git#master"
      "https://github.com/thoughtstem/racket-chipmunk.git#master"
