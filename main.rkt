@@ -38,8 +38,20 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=survival#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master"
-     
-     ))
+     )
+  
+  (fast-setup #:slow-mode? #t ;Builds the docs, which is not the default.
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-fortnite#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-starwars#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=fundamentals#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=k2#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master") 
+        
+)
 
 ;Gets called by raco automatically after setup
 (define (post-installer path)

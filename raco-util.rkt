@@ -4,7 +4,8 @@
 
 (provide update-if-installed!
          install-or-update!
-         install-or-change-source-but-not-update!)
+         install-or-change-source-but-not-update!
+         fast-setup)
 
 (define (installed? s)
   (define name (package-source->name s)) 
@@ -31,12 +32,14 @@
 (define (fast-update s)
   (pkg-update-command s #:deps 'search-auto #:no-setup #t))
 
-(define (fast-setup . s)
+(define (fast-setup #:slow-mode? (slow-mode? #f) . s)
   (setup #:collections (map (compose list package-source->name) s) 
            ;Some things to make it faster...
            #:jobs (processor-count)
-           #:make-docs? #f
-           #:make-doc-index? #f))
+
+           #:make-docs? slow-mode? 
+           #:make-doc-index? slow-mode?
+           ))
 
 (define (install-or-update! . sources)
   (for ([s sources])
