@@ -40,6 +40,7 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master"
      )
   
+  (displayln "BUILDING DOCS FOR STUDENT LANGUAGES")
   (fast-setup #:slow-mode? #t ;Builds the docs, which is not the default.
      "https://github.com/thoughtstem/TS-Languages.git?path=battlearena#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=battlearena-avengers#master"
