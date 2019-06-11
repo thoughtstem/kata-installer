@@ -38,6 +38,8 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=survival#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=adventure-harrypotter#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=adventure-mario#master"
      )
   
   (displayln "BUILDING DOCS FOR STUDENT LANGUAGES")
@@ -50,7 +52,10 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=k2#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft#master"
-     "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master") 
+     "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=adventure-harrypotter#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=adventure-mario#master"
+     ) 
         
 )
 
@@ -79,6 +84,10 @@
   (watch! 'k2)
   (watch! 'survival-minecraft)
   (watch! 'survival-pokemon)
-  (watch! 'survival))
+  (watch! 'survival)
+  (watch! 'adventure-harrypotter)
+  (watch! 'adventure-mario)
+  (watch! 'adventure)
+  )
 
 
