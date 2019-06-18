@@ -38,6 +38,7 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=survival#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=adventure#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=adventure-harrypotter#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=adventure-mario#master"
      )
@@ -53,6 +54,7 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=survival#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-minecraft#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=survival-pokemon#master"
+     "https://github.com/thoughtstem/TS-Languages.git?path=adventure#master"         
      "https://github.com/thoughtstem/TS-Languages.git?path=adventure-harrypotter#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=adventure-mario#master"
      ) 
