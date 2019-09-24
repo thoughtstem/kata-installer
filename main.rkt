@@ -25,7 +25,7 @@
 
      "https://github.com/thoughtstem/pkg-watcher.git#master" 
      "https://github.com/thoughtstem/ratchet.git#master"
-     "https://github.com/thoughtstem/racket-chipmunk.git#master"
+     "https://github.com/thoughtstem/racket-chipmunk.git#4a0198a"
      "https://github.com/thoughtstem/TS-Kata-Collections.git?path=ts-kata-util"
      "https://github.com/thoughtstem/game-engine.git#master"
      "https://github.com/thoughtstem/game-engine-rpg.git#master"
