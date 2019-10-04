@@ -42,6 +42,13 @@
      "https://github.com/thoughtstem/TS-Languages.git?path=adventure#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=adventure-harrypotter#master"
      "https://github.com/thoughtstem/TS-Languages.git?path=adventure-mario#master"
+
+
+     "https://github.com/thoughtstem/TS-K2-Languages.git?path=clicker-cartoon-collect#master"
+     "https://github.com/thoughtstem/TS-K2-Languages.git?path=clicker-cartoon-avoid#master"
+     "https://github.com/thoughtstem/TS-K2-Languages.git?path=clicker-cartoon-special#master"
+
+     "https://github.com/thoughtstem/vr-exploration.git"
      )
   
   (displayln "BUILDING DOCS FOR STUDENT LANGUAGES")
