@@ -48,7 +48,7 @@
      "https://github.com/thoughtstem/TS-K2-Languages.git?path=clicker-cartoon-avoid#master"
      "https://github.com/thoughtstem/TS-K2-Languages.git?path=clicker-cartoon-special#master"
 
-     "https://github.com/thoughtstem/vr-exploration.git"
+     "https://github.com/thoughtstem/TS-VR-Languages.git?path=3d-exploration#master"
      )
   
   (displayln "BUILDING DOCS FOR STUDENT LANGUAGES")
