@@ -22,6 +22,7 @@
 
      "https://github.com/jeapostrophe/lux.git#master"
      "https://github.com/jeapostrophe/mode-lambda.git#0858b6d"
+     "https://github.com/thoughtstem/image-coloring.git#master"
 
      "https://github.com/thoughtstem/pkg-watcher.git#master" 
      "https://github.com/thoughtstem/ratchet.git#master"
@@ -92,6 +93,7 @@
   (watch! 'ratchet)
   (watch! 'racket-chipmunk)
   (watch! 'ts-kata-util)
+  (watch! 'image-coloring)
   
   (watch! 'game-engine)
   (watch! 'game-engine-rpg)
